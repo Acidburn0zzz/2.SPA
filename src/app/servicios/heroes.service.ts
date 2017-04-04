@@ -60,9 +60,6 @@ export class HeroesService {
 
 
     constructor() {
-
-      console.log("Servicio listo para usarse!!!")
-
     }
 
 
@@ -75,20 +72,18 @@ export class HeroesService {
     }
 
 
-    buscarHeroes(termino:string):Heroe[]{
-      let heroesArr : Heroe[] = [];
-      termino = termino.toLocaleLowerCase();
-      for(let heroe of this.heroes){
+    buscarHeroes(termino:string):Heroe[] {
 
-        let nombre = heroe.nombre.toLocaleLowerCase;
-        if(nombre.indexOf(termino) >= 0){
-          heroesArr.push(heroe)
-        }
+      let heroesArr: Heroe[] = [];
 
-      }
+      termino = termino.toLowerCase();
+
+      heroesArr = this.heroes.filter(hr =>  hr.nombre.toLowerCase().indexOf(termino) >= 0);
 
       return heroesArr;
+
     }
+
 
 }
 
